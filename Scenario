@@ -1,0 +1,28 @@
+CLIENT
+
+The client for this project is Puptopia.  Puptopia specializes in providing customers with a large array of dog-specific food, toys, accessories, and grooming products that you won't find in most other pet stores.  The company has been around for five years now and business has been growing greatly over those years.  The client needs an online ordering system for their customers.
+
+THE BUSINESS PROBLEM
+
+In order to purchase from Puptopia, customers must have a valid club contract with the organization.  These contracts are purchased annually and no orders can be placed if a contract has expired.  Customers with a valid contract can purchase items from the company over the phone, and eventually through an online ordering system.  At this time, only the phone system exists and the implementation details of any online ordering system is currently under evaluation.  Because of this, the system should support a multitude of different interfaces.  Additionally, Puptopia wishes to allow users the ability to track their order during the process until the shipment has been delivered.  The company currently only uses FedEx for shipments but that could change in the future.
+
+GOALS
+
+The following are a series of business goals for the new system:
+1-	Support the customer ordering process from submission to delivery.
+2-  Create a solid code base that can be maintained and will be responsivel to business changes in the future
+3-  Centralize order and supply data so customers and customer support agents have all information readily available
+4-  Provide customers a way to sign-up or renew their contracts with the organization
+
+
+USER STORIES
+
+1 - As a customer, I can place an order for products
+2 - As a customer, I can view the status of my order
+3 - As a customer, I can cancel an order
+4 - As a customer, I can update an order
+5 - As a customer, I can create a membership
+6 - As a customer, I can cancel a membership
+7 - As a customer, I can renew a membership
+8 - As a customer, I can view my membership
+9 - As a customer, I can add members to my membership
