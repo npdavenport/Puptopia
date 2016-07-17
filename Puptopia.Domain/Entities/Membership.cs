@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Puptopia.Domain.Entities
 {
-    internal class Membership
+    public class Membership
     {
         public DateTime ExpirationDate { get; set; }
         public DateTime InitialDate { get; set; }

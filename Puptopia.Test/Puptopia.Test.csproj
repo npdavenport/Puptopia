@@ -54,11 +54,18 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Bootstrapper.cs" />
     <Compile Include="MembershipServiceTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Puptopia.Domain\Puptopia.Domain.csproj">
+      <Project>{20fb5f08-ae0f-40c7-8325-3dc3057285cc}</Project>
+      <Name>Puptopia.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

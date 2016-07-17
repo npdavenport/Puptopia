@@ -44,6 +44,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bootstrapper.cs" />
+    <Compile Include="DTO\CustomerDTO.cs" />
     <Compile Include="DTO\MembershipDTO.cs" />
     <Compile Include="Entities\Customer.cs" />
     <Compile Include="Entities\Membership.cs" />

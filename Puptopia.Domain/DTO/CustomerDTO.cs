@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Puptopia.Domain.Entities
+namespace Puptopia.Domain.DTO
 {
-    public class Customer
+    public  class CustomerDTO
     {
         public Guid CustomerId { get; set; }
     }
