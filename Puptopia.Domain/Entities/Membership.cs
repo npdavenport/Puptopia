@@ -1,20 +1,30 @@
 ﻿using Puptopia.Domain.Enums;
+using Puptopia.Domain.Exceptions;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Puptopia.Domain.Entities
 {
-    public class Membership
+    internal class Membership
     {
         public DateTime ExpirationDate { get; set; }
         public DateTime InitialDate { get; set; }
+        public bool IsActive { get; set; }
         public string MembershipId { get; set; }
         public MembershipType MembershipType { get; set; }
-        public DateTime RenewalDate { get; set; }
+        public DateTime EarlyRenewalDate { get; set; }
         private List<Customer> MembershipCustomers { get; set; }
+
+        /// <summary>
+        /// Constructor needed in order to add the list
+        /// of associated customers with the Membership.
+        /// </summary>
+        /// <param name="customers">The list of Customers 
+        /// associated with the Membership.</param>
+        public Membership(List<Customer> customers)
+        {
+            MembershipCustomers = customers;
+        }
 
         /// <summary>
         /// Create a read-only list so the caller of the Membership class
@@ -22,16 +32,29 @@ namespace Puptopia.Domain.Entities
         /// to add Customers directly to the list.  Instead, the caller must
         /// access the public AddCustomer method of the Membership class.
         /// </summary>
-        public IReadOnlyList<Customer> Customers
+        public IReadOnlyList<Customer> Customers => MembershipCustomers;
+
+        /// <summary>
+        /// Adds a Customer to an existing membership.
+        /// </summary>
+        /// <param name="customer">The Customer object to add to the membership.</param>
+        public void AddCustomer(Customer customer)
         {
-            get {
-                return MembershipCustomers;
+            if (!customer.IsActive)
+            {
+                throw new UnableToAddCustomerException("Unable to add customer to Membership.  The customer is currently inactive.");
             }
+
+            MembershipCustomers.Add(customer);
         }
 
-        public void AddCustomer(Guid customerId)
+        /// <summary>
+        /// Removes a Customer from an existing membership.
+        /// </summary>
+        /// <param name="customer">The Customer Object to remove from the Membership.</param>
+        public void RemoveCustomer(Customer customer)
         {
-            throw new NotImplementedException();
+            MembershipCustomers.Remove(customer);
         }
     }
 }

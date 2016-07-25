@@ -1,13 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Puptopia.Domain.Entities
 {
-    public class Customer
+    internal class Customer
     {
+        public string Address2 { get; set; }
         public Guid CustomerId { get; set; }
+        public CustomerRequiredFields CustomerRequiredFields { get; set; }
+        public bool IsActive { get; set; }
+        public Membership Membership { get; set; }
+        public string SecondaryPhone { get; set; }
     }
 }

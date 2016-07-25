@@ -15,44 +15,24 @@ namespace Puptopia.Domain
     /// </summary>
     internal class Bootstrapper
     {
-        #region Private Methods
-
-        // Ensure the generated configuration is valid.
-        private void AssertValidMapperConfiguration(MapperConfiguration config)
-        {
-            try
-            {
-                config.AssertConfigurationIsValid();
-            }
-            catch (AutoMapperConfigurationException e)
-            {
-
-                throw e;
-            }
-            catch (AutoMapperMappingException e)
-            {
-                throw e;
-            }
-        }
-
-        #endregion
-
         #region Internal Methods
 
         /// <summary>
-        /// AutoMapper configuration that is required for the MembershipService.
+        /// AutoMapper configuration that is required for both the 
+        /// MembershipService and CustomerService classes.
         /// </summary>
-        /// <returns>An AutoMapper MapperConfiguration object needed by the MembershipService.</returns>
-        internal MapperConfiguration GetMembershipServiceMapperConfiguration()
+        /// <returns>An AutoMapper MapperConfiguration.</returns>
+        internal MapperConfiguration GetCustomerMembershipServiceMapperConfiguration()
         {
             var config = new MapperConfiguration(cfg =>
             {
-                cfg.CreateMap<MembershipDTO, Membership>();
-                cfg.CreateMap<CustomerDTO, Customer>();
+                cfg.CreateMap<MembershipDto, Membership>().ReverseMap();
+                cfg.CreateMap<CustomerDto, Customer>().ReverseMap();
+                cfg.CreateMap<CustomerRequiredFieldsDto, CustomerRequiredFields>().ReverseMap();
             });
 
             // Validate configuration
-            AssertValidMapperConfiguration(config);
+            config.AssertConfigurationIsValid();
 
             return config;
         }

@@ -45,13 +45,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bootstrapper.cs" />
-    <Compile Include="DTO\CustomerDTO.cs" />
-    <Compile Include="DTO\MembershipDTO.cs" />
+    <Compile Include="Exceptions\CustomerUnderAgeException.cs" />
+    <Compile Include="Exceptions\UnableToAddCustomerException.cs" />
+    <Compile Include="Utilities\UtilityClass.cs" />
+    <Compile Include="DTO\CustomerDto.cs" />
+    <Compile Include="DTO\CustomerRequiredFieldsDto.cs" />
+    <Compile Include="DTO\MembershipDto.cs" />
     <Compile Include="Entities\Customer.cs" />
+    <Compile Include="Entities\CustomerRequiredFields.cs" />
     <Compile Include="Entities\Membership.cs" />
     <Compile Include="Enums\MembershipType.cs" />
-    <Compile Include="IMembershipServiceRepository.cs" />
+    <Compile Include="Exceptions\ExpiredMembershipException.cs" />
+    <Compile Include="Exceptions\RequiredFieldMissingException.cs" />
+    <Compile Include="Interfaces\ICustomerServiceRepository.cs" />
+    <Compile Include="Interfaces\IMembershipServiceRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\CustomerService.cs" />
     <Compile Include="Services\MembershipService.cs" />
   </ItemGroup>
   <ItemGroup>

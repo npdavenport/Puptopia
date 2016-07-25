@@ -12,31 +12,27 @@ namespace Puptopia.Domain.DTO
     /// This Data Transfer Object will carry membership information 
     /// between the domain and persistence layers.
     /// </summary>
-    public class MembershipDTO
+    public class MembershipDto
     {
         public DateTime ExpirationDate { get; set; }
         public DateTime InitialDate { get; set; }
+        public bool IsActive { get; set; }
         public string MembershipId { get; set; }
         public MembershipType MembershipType { get; set; }
-        public DateTime RenewalDate { get; set; }
-        private List<CustomerDTO> MembershipCustomers { get; set; }
+        public DateTime EarlyRenewalDate { get; set; }
+        private List<CustomerDto> MembershipCustomers { get; set; }
 
-        public IReadOnlyList<CustomerDTO> Customers
-        {
-            get
-            {
-                return MembershipCustomers;
-            }
-        }
+        // Get only
+        public IReadOnlyList<CustomerDto> Customers => MembershipCustomers;
 
         /// <summary>
         /// Use this constructor to populate data that can be read by
-        /// the Customers readonly list.
+        /// the customers readonly list.
         /// </summary>
-        /// <param name="Customers">CustomerDTO objects associated with the MembershipDTO</param>
-        public MembershipDTO(List<CustomerDTO> Customers)
+        /// <param name="customers">CustomerDto objects associated with the MembershipDto</param>
+        public MembershipDto(List<CustomerDto> customers)
         {
-            MembershipCustomers = Customers;
+            MembershipCustomers = customers;
         }
 
     }

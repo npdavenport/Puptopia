@@ -1,13 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Puptopia.Domain.DTO
 {
-    public  class CustomerDTO
+    public  class CustomerDto
     {
+        public string Address2 { get; set; }
         public Guid CustomerId { get; set; }
+        public CustomerRequiredFieldsDto CustomerRequiredFields { get; set; }
+        public bool IsActive { get; set; }
+        public MembershipDto Membership;
+        public string SecondaryPhone { get; set; }
     }
 }
